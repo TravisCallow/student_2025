@@ -1,7 +1,7 @@
-title: Nighthawk Pages 
+title: THE best website ever created, deserves an A+ PLEASE!!!!!!
 description: "Class of 2025"
-owner_name: John Mortensen
-github_username: nighthawkcoders
+owner_name: Travis Callow
+github_username: TravisCallow
 github_repo: "student_2025" 
 baseurl: "/student_2025"
 future: true
@@ -9,9 +9,9 @@ remote_theme: jekyll/minima
 minima:
   skin: dark
   social_links:
-    - { platform: github, user_url: "https://github.com/nighthawkcoders"}
-    - { platform: x, user_url: "https://x.com/NighthawkCoding/" }
-    - { platform: youtube, user_url: "https://www.youtube.com/@nighthawkcodingsociety2868" } 
+    - { platform: github, user_url: "https://github.com/TravisCallow"}
+    - { platform: x, user_url: "https://x.com/traviscallow/" }
+    - { platform: youtube, user_url: "https://www.youtube.com/@ZU6N" } 
 # remote_theme: pages-themes/midnight@v0.2.0
 # remote_theme: pages-themes/cayman@v0.2.0
 # remote_theme: pages-themes/dinky@v0.2.0
