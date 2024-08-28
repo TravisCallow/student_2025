@@ -7,4 +7,4 @@ hide: true
 
 {% include nav_home.html %}
 
-My journey starts here.
+Travis's best website ever created

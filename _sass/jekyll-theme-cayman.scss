@@ -52,6 +52,7 @@ body {
   }
 }
 
+
 a {
   color: $body-link-color;
   text-decoration: none;
@@ -59,6 +60,15 @@ a {
   &:hover {
     text-decoration: underline;
   }
+}
+
+.navBtn {
+  color: chartreuse;
+  text-decoration-color: chartreuse;
+  -webkit-text-stroke: chartreuse;
+  font: bold;
+  font-size: 15px;
+  font-family: monospace;
 }
 
 .btn {

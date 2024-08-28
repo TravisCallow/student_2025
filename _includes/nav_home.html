@@ -1,13 +1,45 @@
-<table>
-    <tr>
-        <td><img src="{{site.baseurl}}/images/logo.png" height="60" title="Frontend" alt=""></td>
-        <td><a href="{{site.baseurl}}/navigation/csse">CSSE</a></td>
-        <td><a href="{{site.baseurl}}/navigation/csp">CSP</a></td>
-        <td><a href="{{site.baseurl}}/navigation/csa">CSA</a></td>
-        <td><a href="{{site.baseurl}}/navigation/game">Game</a></td>
-        <td><a href="{{site.baseurl}}/navigation/game2.html">Mario Platformer</a></td>
-        <td><a href="{{site.baseurl}}//2023/08/30/Calculator.html">Calculator</a></td>
-        <td><a href="{{site.baseurl}}//2023/08/31/Snake.html">Snake Game</a></td>
-        <td><a href="{{site.baseurl}}//2024/01/30/Final-Project-Test-copy.html">Final Project CSSE 1</a></td>
-    </tr>
-</table>
+<html>
+    <style>
+        .navLink {
+            color: black, !important;
+            background: aliceblue, !important;
+        }
+
+        .navBtn {
+            color: rgb(0, 255, 115);
+            background-color: rgb(240, 248, 255, 1), !important;
+            background: aliceblue;
+            border-color: aliceblue;
+            border-radius: 35px;
+            font: bold;
+            font-size: 20px;
+            transition: font-size, background-color, border-color;
+            transition-duration: 0.3s;
+            transition-delay: 0s;
+            font-family: monospace;
+            display: inline-block;
+            padding: 7px;
+            
+        }
+        .navBtn:hover {
+            border-color: rgb(128, 255, 255);
+            background: fixed;
+            background-color: rgb(190, 255, 255);
+            font-size: 25px;
+        }
+
+    </style>
+    <body>
+        <table>
+            <tr>
+                <td><p style="font-size: 30px; color: aliceblue;">Navigation:</p></td>
+                <td><button  class="navBtn"><a href="{{site.baseurl}}/navigation/csse" class="navLink">CSSE</a></button></td>
+                <td><button  class="navBtn"><a href="{{site.baseurl}}/navigation/csp" class="navLink">CSP</a></button></td>
+                <td><button  class="navBtn"><a href="{{site.baseurl}}/navigation/csse" class="navLink">random</a></button></td>
+                <td><button  class="navBtn"><a href="{{site.baseurl}}/navigation/csp" class="navLink">skibidi</a></button></td>
+                <td><button  class="navBtn"><a href="{{site.baseurl}}/navigation/csse" class="navLink">randomstuff</a></button></td>
+                <td><button  class="navBtn"><a href="{{site.baseurl}}/navigation/csp" class="navLink">travisisbest</a></button></td>
+            </tr>
+        </table>
+    </body>
+</html>
