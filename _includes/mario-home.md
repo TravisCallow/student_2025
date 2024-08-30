@@ -1,24 +1,3 @@
----
-layout: base
-title: Travis Website
-description: Welcome.
-image: /images/mario_animation.png
-hide: true
----
-
-<!-- Liquid:  statements -->
-
-<!-- Include submenu from _includes to top of pages -->
-{% include nav_home.html %}
-<!--- Concatenation of site URL to frontmatter image  --->
-{% assign sprite_file = site.baseurl | append: page.image %}
-<!--- Has is a list variable containing mario metadata for sprite --->
-{% assign hash = site.data.mario_metadata %}  
-<!--- Size width/height of Sprit images --->
-{% assign pixels = 256 %} 
-
-<!--- HTML for page contains <p> tag named "Mario" and class properties for a "sprite"  -->
-
 <p id="mario" class="sprite"></p>
   
 <!--- Embedded Cascading Style Sheet (CSS) rules, 
@@ -47,7 +26,7 @@ hide: true
 <!--- Embedded executable code--->
 <script>
   ////////// convert YML hash to javascript key:value objects /////////
-  var wordList = ["Hello Im Mario!", "Travis is the best coder", "You should give Travis an A+ for his hard work!", "Did you know racecar spelled backwards is racecar?", "Canvas is annoying to code in.", "Guess what...     CHICKEN BUTT!", "This is fun.", 'Hola, hi, hallo, Privet, Nǐ hǎo, Ciao, Anyoung', "How are you doing today?", "My favorite color is blue", "I think Travis should get at least 101% on this project.. PLEASE", "This is probably the best project, right?", "Fun Fact: Giraffes are 30 times more likely to get hit by lightning than people", "Fun Fact: The largest piece of fossilised dinosaur poo discovered is over 30cm long and over two litres in volume. ","Fun Fact: Animals can experience time differently from humans.","Fun Fact: All the world’s bacteria stacked on top of each other would stretch for 10 billion light-years. ","Fun Fact: The fear of long words is called Hippopotomonstrosesquippedaliophobia. ","Fun Fact: Competitive art used to be an Olympic sport.","Fun Fact: The longest English word is 189,819 letters long.","Fun Fact: The circulatory system is more than 60,000 miles long.","Fun Fact: It’s impossible to hum while holding your nose.","Fun Fact: Finland has more saunas than cars.","Fun Fact: McDonald’s once made bubblegum-flavored broccoli."];
+  var wordList = ["Hello Im Mario!", "Travis is the best coder", "You should give Travis an A+ for his hard work!", "Did you know racecar spelled backwards is racecar?", "Canvas is annoying to code in.", "Guess what...     CHICKEN BUTT!", "This is fun.", 'Hola, hi, hallo, Privet, Nǐ hǎo, Ciao, Anyoung'];
   function getCSS(element) {
     var text = document.getElementById("speech");
     let css_data = '';
@@ -252,16 +231,3 @@ hide: true
     sprite.style.transform = `scale(${0.2 * scale})`;
     mario.startResting();
   });
-
-</script>
-> # About Me!
-- Hello, my name is Travis and I love to play football. I have a mom, dad, brother, cat, and dog.
-- ## My favorite topics/things
-- Football
-- Family
-- Video Games
-- Sports
-- Friends
-- Cats
-- ## ![My cat with a football and football helmet]({{site.baseurl}}/images/catWithFootball.jpg)
-- This is my cat with my football stuff. This picture means a lot to me because I love my cat and I love football.
