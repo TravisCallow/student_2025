@@ -254,6 +254,7 @@ hide: true
   });
 
 </script>
+{% include aboutme_home.html %}
 > # About Me!
 - Hello, my name is Travis and I love to play football. I have a mom, dad, brother, cat, and dog.
 - ## My favorite topics/things
