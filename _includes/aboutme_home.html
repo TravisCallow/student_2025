@@ -6,18 +6,77 @@
             border-radius: 0px !important;
             table-layout: auto !important;
         }
+
+        li{
+            font-weight: normal;
+            font-size: 17.5px;
+        }
+        .abtMeList{
+            list-style-type: "- ";
+        }
+
+        img{
+            border-radius: 25px;
+            height: 300px;
+            width: auto;
+            float:left;
+            margin: 10px 15px 0px 0px;
+        }
+        div{
+            clear:both;
+        }
     </style>
     <body>
-        <h1 style="color: rgb(80, 208, 255) !important;">About Me</h1>
+        <h1 style="color: rgb(138, 224, 255) !important;">About Me</h1>
         <table class="aboutMe">
             <tr>
-                <th><p>Hello, my name is Travis and I love to play football. I have a mom, dad, brother, cat, and dog.</p></th>
+                <th>
+                    <h3>Who Am I?</h3>
+                    <ul class="abtMeList">
+                        <li>My name is Travis</li>
+                        <li>I love to play football</li>
+                        <li>I have a cat and dog</li>
+                        <li>I am 16 years old</li>
+                        <li>I have been coding since 2016</li>
+                    </ul>
+                </th>
             </tr>
             <tr>
-                <th><p>My favorite topics/things</p> </th>
+                <th>
+                    <h3>My favorite topics/things</h3>
+                    <ul class="abtMeList">
+                        <li>Jesus</li>
+                        <li>Family</li>
+                        <li>Football</li>
+                        <li>Friends</li>
+                        <li>Video Games</li>
+                        <li>Sports</li>
+                        <li>Cats</li>
+                    </ul>
+                </th>
             </tr>
             <tr>
-                <th><p>hi</p></th>
+                <th>
+                    <h3>Important Pictures to me</h3>
+                    <ul class="abtMeList">
+                        <li><div>
+                            <img src="{{site.baseurl}}/images/catWithFootball.jpg" alt="Cat with football and football helmet">
+                            <p>This picture is important to me due to several reaons. The primary reason is because it contains
+                                the two things I love more than most things. These two things are football and my cat. My cat means
+                                a lot to me because of how cute and sweet he is. Football is how I get rid of my stress and anger.
+                                Football is very fun and I love it.
+                            </p>
+                        </div></li>
+                        <br>
+                        <li><div>
+                            <img src="{{site.baseurl}}/images/serraCross.png" alt="Cross on mountain">
+                            <p>This picture is important in two main reasons. The main reason is because of my faith. The other reason
+                                is because this was during a beach camp my church had. This camp was a very fun time for me, especially
+                                because all I was doing during summer was football practice and nothing else.
+                            </p>
+                        </div></li>
+                    </ul>
+                </th>
             </tr>
         </table>
     </body>
