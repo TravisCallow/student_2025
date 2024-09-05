@@ -1,0 +1,69 @@
+<html>
+    <style>
+        #MoneyCount {
+            font-family: monospace;
+        }
+        #roll {
+            text-align: center;
+            margin:auto;
+            font-size: 50px;
+            background-color: rgba(192, 255, 97, 0.482) !important;
+            border-radius: 25px;
+            border-color: greenyellow;
+            width: 50%;
+        }
+        #rollingDiv {
+            display: inline-block;
+            align-items:center;
+            justify-content: center;
+            width:75%;
+        }
+    </style>
+    <body>
+        <h2 id="MoneyCount">Money: .....</h2>
+        <div id="rollingDiv">
+            <h1 id="output">Output..</h1>
+            <button id="roll" onclick="roll()">ROLL</button>
+        </div>
+        
+    </body>
+    <script>
+        var Money = 100;
+        var moneyInc = 10;
+        var moneyCount = document.getElementById("MoneyCount");
+        var rollBtn = document.getElementById("roll");
+        var outputText = document.getElementById("output");
+        function refreshMoney(){
+            moneyCount.innerHTML = "Money: "+Money.toString();
+        }
+        function roll(){
+            Money -= moneyInc;
+            var d = Math.random();
+            
+            if (d < 0.5){
+                // 70% chance of being here
+                outputText.innerHTML = "YOU LOST";
+            }else if (d < 0.6){
+                Money += moneyInc*0.5;
+                outputText.innerHTML = "No Profit but you won: " + (moneyInc*0.5).toString();
+            }else if (d < 0.61){
+                Money += moneyInc*50;
+                outputText.innerHTML = "!!!!YOU WON THE JACKPOT!!!!!: " + (moneyInc*50).toString();
+            }else if (d < 0.75){
+                // 10% chance of being here
+                Money += moneyInc*2;
+                outputText.innerHTML = "YOU WON: " + (moneyInc*2).toString();
+            }else{
+                // 30% chance of being here
+                Money += moneyInc
+                outputText.innerHTML = "YOU WON: " + (moneyInc).toString();
+            }
+
+            
+            refreshMoney();
+        }
+        refreshMoney();
+        
+
+    </script>
+</html>
