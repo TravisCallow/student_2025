@@ -83,21 +83,21 @@
                 if (d < 0.3){
                     // 70% chance of being here
                     outputText.innerHTML = "YOU LOST";
-                    outputText.style = "color: rgb(255, 60, 60);"
+                    outputText.style = "color: rgb(255, 60, 60, 0.5);"
                 }else if (d < 0.45){
                     outputText.innerHTML = "No Profit but you won: " + (moneyInc*0.5).toString();
-                    outputText.style = "color: rgb(255, 138, 138);"
+                    outputText.style = "color: rgb(255, 138, 138, 0.5);"
                 }else if (d < 0.57){
                     outputText.innerHTML = "!!!!YOU WON THE JACKPOT!!!!!: " + (moneyInc*20).toString();
-                    outputText.style = "color: rgb(255, 208, 0);"
+                    outputText.style = "color: rgb(255, 208, 0, 0.5);"
                 }else if (d < 0.9){
                     // 10% chance of being here
                     outputText.innerHTML = "YOU WON: " + (moneyInc*2).toString();
-                    outputText.style = "color: rgb(83, 255, 53);"
+                    outputText.style = "color: rgb(83, 255, 53, 0.5);"
                 }else{
                     // 30% chance of being here
                     outputText.innerHTML = "YOU WON: " + (moneyInc).toString();
-                    outputText.style = "color: rgb(185, 255, 114);"
+                    outputText.style = "color: rgb(185, 255, 114, 0.5);"
                 }
                 
             }
