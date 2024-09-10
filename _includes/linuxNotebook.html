@@ -1,0 +1,144 @@
+<html>
+    <style>
+        h1,h2,h3,h4,h5,h6,p,li{
+            font-family: monospace !important;
+        }
+        .aboutMe {
+            border: solid white 0px !important;
+            border-left: solid rgb(174, 255, 190) !important;
+            border-radius: 0px !important;
+            table-layout: auto !important;
+        }
+
+        li{
+            font-weight: normal;
+            font-size: 17.5px;
+            color:rgba(186, 255, 116, 0.533) !important;
+        }
+        .abtMeList{
+            list-style-type: "» ";
+        }
+
+        img{
+            border-radius: 25px;
+            height: 300px;
+            width: auto;
+            float:left;
+            margin: 10px 15px 0px 0px;
+        }
+        div{
+            clear:both;
+        }
+        h3,h2{
+            color:rgba(186, 255, 116, 0.953) !important;
+        }
+        .navLink {
+            color: black;
+            background: aliceblue;
+        }
+
+        .navBtn {
+            color: rgb(255, 253, 249) !important;
+            background-color: rgba(229, 255, 235, 0.274) !important;
+            background: aliceblue;
+            border-color: aliceblue;
+            border-radius: 35px;
+            font-size: 20px;
+            transition: font-size, background-color, border-color;
+            transition-duration: 0.3s;
+            transition-delay: 0s;
+            font-family: monospace;
+            display: inline-block;
+            padding: 7px;
+            
+        }
+        .navBtn:hover {
+            border-color: rgb(128, 255, 139);
+            background: fixed;
+            background-color: rgba(108, 255, 118, 0.5) !important;
+            font-size: 25px;
+        }
+
+        button {
+            color:aqua;
+        }
+
+        .navBarTable {
+            border-collapse: separate !important;
+            border: solid rgb(109, 255, 126) 2px !important;
+            border-radius: 35px !important;
+        }
+        .navTd, .navTr {
+            border: solid rgb(109, 255, 126) 0px !important;
+        }
+    </style>
+    <body>
+        <h1 style="color: rgb(138, 255, 138) !important;">Linux Notebook</h1>
+        <table class="navBarTable">
+            <tr class="navTr">
+                <td class="navTd"><a href="#fileCmd"><button class="navBtn">File/Directory Commands</button></a></td>
+                <td class="navTd"><a href="#importantCmd"><button class="navBtn">Important Commands</button></a></td>
+                <td class="navTd"><a href="#githubCmd"><button class="navBtn">Github Commands</button></a></td>
+            </tr>
+        </table>
+        <table class="aboutMe">
+            <tr>
+                <th>
+                    <h2 id="fileCmd">File/Directory Commands</h2>
+                    <h3>cat</h3>
+                    <ul class="abtMeList"><li>Lists out the contents in a file</li></ul>
+                    <h3>echo</h3>
+                    <ul class="abtMeList"><li>Makes file/repeats what you say</li></ul>
+                    <h3>cd</h3>
+                    <ul class="abtMeList"><li>Changes directory you are in</li></ul>
+                    <h3>ls</h3>
+                    <ul class="abtMeList"><li>Lists all of the files in a directory</li></ul>
+                    <h3>mkdir</h3>
+                    <ul class="abtMeList"><li>Creates a directory</li></ul>
+                    <h3>rm</h3>
+                    <ul class="abtMeList"><li>Removes files</li></ul>
+                    <h3>vim</h3>
+                    <ul class="abtMeList"><li>Edits file</li></ul>
+                    <h3>nano</h3>
+                    <ul class="abtMeList"><li>Edits file</li></ul>
+                    <h3>gedit</h3>
+                    <ul class="abtMeList"><li>Edits file</li></ul>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h2 id="importantCmd">Important Commands</h2>
+                    <h3>apt update</h3>
+                    <ul class="abtMeList"><li>Updates all applications(run this before upgrade)</li></ul>
+                    <h3>apt upgrade</h3>
+                    <ul class="abtMeList"><li>Finishes updating all applications(run this after update)</li></ul>
+                    <h3>apt install</h3>
+                    <ul class="abtMeList"><li>Installs applications</li></ul>
+                    <h3>apt remove</h3>
+                    <ul class="abtMeList"><li>Removes applications</li></ul>
+                    <h3>apt-get --purge remove</h3>
+                    <ul class="abtMeList"><li>Removes packages</li></ul>
+                    <h3>sudo su</h3>
+                    <ul class="abtMeList"><li>Puts you into superuser mode so you don't have to type sudo anymore</li></ul>
+                    <h3>sudo</h3>
+                    <ul class="abtMeList"><li>Lets you do any task in the terminal</li></ul>
+                    <h3>RM</h3>
+                    <ul class="abtMeList"><li>Removes files</li></ul>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h2 id="githubCmd">Github Commands/Setup</h2>
+                    <h3>git clone</h3>
+                    <ul class="abtMeList"><li>Clones repository for you to use</li></ul>
+                    <h3>git config</h3>
+                    <ul class="abtMeList"><li>Adds your user info</li></ul>
+                    <h3>bundle install</h3>
+                    <ul class="abtMeList"><li>Installs gems</li></ul>
+                    <h3>make</h3>
+                    <ul class="abtMeList"><li>starts up local server for website repository on github</li></ul>
+                </th>
+            </tr>
+        </table>
+    </body>
+</html>
