@@ -80,38 +80,46 @@
                 outputText.style = "color: rgb(0,0,0,1);"
                 await sleep(20);
                 var d = Math.random();
-                if (d < 0.3){
+                if (d < 0.25){
                     // 70% chance of being here
                     outputText.innerHTML = "YOU LOST";
                     outputText.style = "color: rgb(255, 60, 60, 0.5);"
-                }else if (d < 0.45){
+                }else if (d < 0.35){
                     outputText.innerHTML = "No Profit but you won: " + (moneyInc*0.5).toString();
                     outputText.style = "color: rgb(255, 138, 138, 0.5);"
+                }else if(d < 0.45){
+                    outputText.innerHTML = "REFUND: " +(moneyInc).toString();
+                    outputText.style = "color: rgb(211, 211, 211, 0.5);"
                 }else if (d < 0.57){
                     outputText.innerHTML = "!!!!YOU WON THE JACKPOT!!!!!: " + (moneyInc*20).toString();
                     outputText.style = "color: rgb(255, 208, 0, 0.5);"
                 }else if (d < 0.9){
                     // 10% chance of being here
-                    outputText.innerHTML = "YOU WON: " + (moneyInc*2).toString();
+                    outputText.innerHTML = "YOU WON: " + (moneyInc*2 + moneyInc).toString();
                     outputText.style = "color: rgb(83, 255, 53, 0.5);"
                 }else{
                     // 30% chance of being here
-                    outputText.innerHTML = "YOU WON: " + (moneyInc).toString();
+                    outputText.innerHTML = "YOU WON: " + (moneyInc + moneyInc).toString();
                     outputText.style = "color: rgb(185, 255, 114, 0.5);"
                 }
                 
             }
             console.log('Done');
             var e = Math.random();
-                if (e < 0.5){
+                if (e < 0.4){
                     // 70% chance of being here
                     outputText.innerHTML = "YOU LOST";
                     outputText.style = "color: rgb(255, 60, 60);"
-                }else if (e < 0.6){
+                }else if (e < 0.5){
                     Money += moneyInc*0.5;
                     moneyWon += moneyInc*0.5;
                     outputText.innerHTML = "No Profit but you won: " + (moneyInc*0.5).toString();
                     outputText.style = "color: rgb(255, 138, 138);"
+                }else if (e < 0.6){
+                    Money += moneyInc;
+                    moneyWon += moneyInc;
+                    outputText.innerHTML = "REFUND: " +(moneyInc).toString();
+                    outputText.style = "color: rgb(211, 211, 211);"
                 }else if (e < 0.61){
                     Money += moneyInc*20 + moneyInc;
                     moneyWon += moneyInc*20;
@@ -122,14 +130,14 @@
                 }else if (e < 0.75){
                     // 10% chance of being here
                     Money += moneyInc*2 + moneyInc;
-                    moneyWon += moneyInc*2;
-                    outputText.innerHTML = "YOU WON: " + (moneyInc*2).toString();
+                    moneyWon += moneyInc*2 + moneyInc;
+                    outputText.innerHTML = "YOU WON: " + (moneyInc*2 + moneyInc).toString();
                     outputText.style = "color: rgb(83, 255, 53);"
                 }else{
                     // 30% chance of being here
                     Money += moneyInc + moneyInc;
-                    moneyWon += moneyInc;
-                    outputText.innerHTML = "YOU WON: " + (moneyInc).toString();
+                    moneyWon += moneyInc + moneyInc;
+                    outputText.innerHTML = "YOU WON: " + (moneyInc + moneyInc).toString();
                     outputText.style = "color: rgb(185, 255, 114);"
                 }
 
