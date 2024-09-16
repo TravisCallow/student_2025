@@ -1,0 +1,153 @@
+<html>
+    <style>
+        h1,h2,h3,h4,h5,h6,p,li{
+            font-family: monospace !important;
+        }
+        .aboutMe {
+            border: solid white 0px !important;
+            border-left: solid rgb(255, 221, 174) !important;
+            border-radius: 0px !important;
+            table-layout: auto !important;
+        }
+
+        li{
+            font-weight: normal;
+            font-size: 17.5px;
+            color:rgba(255, 197, 116, 0.533) !important;
+        }
+        .abtMeList{
+            list-style-type: "» ";
+        }
+
+        img{
+            border-radius: 25px;
+            height: 300px;
+            width: auto;
+            float:left;
+            margin: 10px 15px 0px 0px;
+        }
+        div{
+            clear:both;
+        }
+        h3,h2{
+            color:rgba(255, 195, 116, 0.953) !important;
+        }
+        .navLink {
+            color: black;
+            background: aliceblue;
+        }
+
+        .navBtn {
+            color: rgb(255, 253, 249) !important;
+            background-color: rgba(255, 242, 229, 0.274) !important;
+            background: aliceblue;
+            border-color: aliceblue;
+            border-radius: 35px;
+            font-size: 20px;
+            transition: font-size, background-color, border-color;
+            transition-duration: 0.3s;
+            transition-delay: 0s;
+            font-family: monospace;
+            display: inline-block;
+            padding: 7px;
+            
+        }
+        .navBtn:hover {
+            border-color: rgb(255, 198, 128);
+            background: fixed;
+            background-color: rgba(255, 204, 108, 0.5) !important;
+            font-size: 25px;
+        }
+
+        button {
+            color:aqua;
+        }
+
+        .navBarTable {
+            border-collapse: separate !important;
+            border: solid rgb(255, 245, 232) 2px !important;
+            border-radius: 35px !important;
+            position:fixed;
+            bottom:0px;
+            width:57.5%;
+        }
+        .navTd, .navTr {
+            border: solid rgb(255, 192, 109) 0px !important;
+        }
+    </style>
+    <body>
+        <h1 style="color: rgb(255, 210, 138) !important;">Javascript Notebook</h1>
+        <table class="navBarTable">
+            <tr class="navTr">
+                <td class="navTd"><a href="#basicCode"><button class="navBtn">Basic Code</button></a></td>
+                <td class="navTd"><a href="#htmlcoding"><button class="navBtn">HTML Coding</button></a></td>
+                <td class="navTd"><a href="#ifstatements"><button class="navBtn">Everything About If Statements</button></a></td>
+            </tr>
+        </table>
+        <table class="aboutMe">
+            <tr>
+                <th>
+                    <h2 id="basicCode">Basic Code</h2>
+                    <h3>console.log("");</h3>
+                    <ul class="abtMeList"><li>Displays whatever is in the parantheses in the terminal</li></ul>
+                    <h3>var variableName = content;</h3>
+                    <ul class="abtMeList"><li>Makes a variable</li></ul>
+                    <h3>number.toString();</h3>
+                    <ul class="abtMeList"><li>Makes a number into a string value, good for visual counters</li></ul>
+                    <h3>Number(stringOrSomething);</h3>
+                    <ul class="abtMeList"><li>Makes whatever is in the parentheses into a number</li></ul>
+                    <h3>function funcName(var1,var2,ect...){function code here}</h3>
+                    <ul class="abtMeList"><li>A function is pretty much a variable but for code</li></ul>
+                    <h3>funcName(var1, var2, ect...);</h3>
+                    <ul class="abtMeList"><li>Calls function which runs the code inside of the function</li></ul>
+                    <h3>return value;</h3>
+                    <ul class="abtMeList"><li>Returns value from function</li></ul>
+                    <h3>var audio = new Audio("audiofile")</h3>
+                    <ul class="abtMeList"><li>Adds audio into your website</li></ul>
+                    <h3>audio.play();</h3>
+                    <ul class="abtMeList"><li>Plays the audio that is already in your website</li></ul>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h2 id="htmlcoding">HTML Coding</h2>
+                    <h3>document.GetElementById("id")</h3>
+                    <ul class="abtMeList"><li>Lets you get whatever element in the html website with the id as you put and you can change it.</li></ul>
+                    <h3>___.innerHTML = "text/otherstuff"</h3>
+                    <ul class="abtMeList"><li>Lets you change whatever is inside of an html thing like changing text</li></ul>
+                    <h3>___.style = "styleProp: prop;"</h3>
+                    <ul class="abtMeList"><li>Changes the style of an html element</li></ul>
+                    <h3>___.value</h3>
+                    <ul class="abtMeList"><li>Gets whatever is in a textbox for user input</li></ul>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h2 id="ifstatements">Everything about if statements</h2>
+                    <h3>if(term){code}</h3>
+                    <ul class="abtMeList"><li>If the term is true then the code will run that is in the curly brackets</li></ul>
+                    <h3>else if(term){code}</h3>
+                    <ul class="abtMeList"><li>You put this after an if statement and it will follow the same rules as a regular if statement but just adds on</li></ul>
+                    <h3>else{code}</h3>
+                    <ul class="abtMeList"><li>This will run the code if everything else in the if statements are false</li></ul>
+                    <h3>if(term1 == term2){code}</h3>
+                    <ul class="abtMeList"><li>If term1 is equal to term2, the code will play</li></ul>
+                    <h3>if(term1 != term2){code}</h3>
+                    <ul class="abtMeList"><li>If term1 is not equal to term2, the code will play</li></ul>
+                    <h3>if(term1 &lt; term2){code}</h3>
+                    <ul class="abtMeList"><li>If term1 is less than term2, the code will play</li></ul>
+                    <h3>if(term1 &lt;= term2){code}</h3>
+                    <ul class="abtMeList"><li>If term1 is less than or equal to term2, the code will play</li></ul>
+                    <h3>if(term1 &gt; term2){code}</h3>
+                    <ul class="abtMeList"><li>If term1 is greater than term2, the code will play</li></ul>
+                    <h3>if(term1 &gt;= term2){code}</h3>
+                    <ul class="abtMeList"><li>If term1 is greater than or equal to term2, the code will play</li></ul>
+                    <h3>if(term1 && term2){code}</h3>
+                    <ul class="abtMeList"><li>If term1 and term2 are true, the code will play</li></ul>
+                    <h3>if(term1 || term2){code}</h3>
+                    <ul class="abtMeList"><li>If term1 or term2 are true, the code will play</li></ul>
+                </th>
+            </tr>
+        </table>
+    </body>
+</html>
