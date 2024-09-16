@@ -1,5 +1,6 @@
 import random
 import sys
+from emoji import emojize 
  
 cash = 250
 cashC = 00
@@ -14,7 +15,7 @@ def guessJob():
     guess = int(input("Guess the number from 1 - " + "15:"))
     if guess == randomNum:
         cash += 150
-        print("YOU WON!!")
+        print(emojize(":money-mouth_face:YOU WON:money-mouth_face:"))
         print("Your cash is now: $" + str(cash))
         choices()
     else:
@@ -41,7 +42,7 @@ def slotsJob():
  
     if machinePrint == "111" or machinePrint == "222" or machinePrint == "333" or machinePrint == "444":
         cash += amount * 15
-        print("YOU WON THE JACKPOT!!! Your cash is now: $" + str(cash))
+        print(emojize(":money-mouth_face::money-mouth_face:YOU WON THE JACKPOT!!! Your cash is now: $" + str(cash)))
         choices()
     else:
         cash -= amount
@@ -75,7 +76,7 @@ def bjJob():
             if cardValue > botValue and cardValue <= 21:
                 cash += amount * 1.5
 		    
-                print("You won! Congratulations, you now have: $" + str(cash))
+                print(emojize(":money-mouth_face:You won! Congratulations, you now have: $" + str(cash)))
                 choices()
             elif cardValue > 21 or cardValue <= botValue:
                 cash -= amount
@@ -88,7 +89,7 @@ def bjJob():
  
  
 def choices():
-    decision = input("What do you want to do? (work, buy, sell, quit(ONLY IF YOU WANT TO LEAVE PROGRESS DOESNT SAVE))").lower()
+    decision = input(emojize("What do you want to do? (:money_bag:work, buy, sell, :cross_mark:quit(ONLY IF YOU WANT TO LEAVE PROGRESS DOESNT SAVE))")).lower()
  
     if decision == "work":
         job = input("What do you want to do? (guess, slots, blackjack)")
