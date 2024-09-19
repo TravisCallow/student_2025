@@ -1,0 +1,211 @@
+<html>
+    <style>
+        .post-content{
+            background: rgb(161, 101, 52) !important;
+            padding:50px;
+            border-radius: 50px;
+            box-shadow: 0 0 50px #ffb144;
+        }
+        #cookie{
+            border:0px;
+            transition: all;
+            transition-duration: 350ms;
+            margin:0 auto;
+            background: rgb(0,0,0,0) !important;
+        }
+        #cookieimg{
+            height: 500px;
+            transition: all;
+            transition-duration: 0.1s;
+            transition-delay: 0s;
+            position:static;
+            background: rgb(0,0,0,0) !important;
+        }
+        #cookieDiv{
+            text-align: center; 
+            padding-bottom: 50px;
+            transition: all;
+            transition-duration: 0.1s;
+            transition-delay: 0s;
+        }
+        .wrapperC {
+            height: 50vh; /* full viewport height */
+            display: flex;
+            flex-direction: column;
+        }
+        .middle {
+        background: rgb(0,0,0,0);
+        flex: 1; /* fill the remaining space */
+        min-height: 0; /* optional */
+        overflow: auto; /* overflow if exceeds available space */
+        }
+        .upgradeIcon{
+            height: 50px;
+        }
+        td{
+            width:25%;
+        }
+        .upgradebtn{
+            border:0px;
+            width:100%;
+            background-color: rgb(0,0,0,0) !important;
+        }
+        .price{
+            color: rgb(168, 210, 127) !important;
+            font-size: 25px;
+            text-shadow: rgb(0, 255, 26) 1px 0 10px;
+        }
+        .title{
+            font-size: 2em;
+            color:rgb(192, 255, 234);
+            text-shadow: rgb(0, 170, 255) 1px 0 10px;
+        }
+        table{
+            background-color: rgb(180, 124, 78) !important;
+            border-color: rgb(0,0,0,0) !important;
+            border-radius: 25px !important;
+            box-shadow: 0 0 5px #9ecaed;
+        }
+        td{
+            background-color: rgb(215, 149, 95) !important;
+            border-radius: 25px;
+        }
+        td,td{
+            border-color: rgb(0,0,0,0) !important;
+        
+        }
+        img{
+            -webkit-user-select: none !important;
+            -khtml-user-select: none !important;
+            -moz-user-select: none !important;
+            -o-user-select: none !important;
+            user-select: none !important;
+        }
+        .amtOwned{
+            font-size: 20px;
+            text-shadow: #FC0 1px 0 10px;
+        }
+        #moneyCount, #cps{
+            color:white;
+            text-shadow: #FC0 1px 0 10px;
+        }
+
+    </style>
+    <body>
+        <h1 id="moneyCount">Money: </h1>
+        <h1 id="cps">CPS: </h1>
+        <div id="cookieDiv">
+            <button id="cookie" onclick="cookieClicked()"><img src="{{site.baseurl}}/images/cookie.png" id="cookieimg"></button>
+        </div>
+        <div class="wrapperC">
+            <div class="middle">
+                <table>
+                    <tr>
+                        <td><button class="upgradebtn" id="moreClick" onclick="purchaseclick1()"><p class="price" id="c1Price">5</p><h4 class="title">More Clicks</h4><div style="display: flex; width: 100%; text-align: center;"><img src="{{site.baseurl}}/images/cursor.png" class="upgradeIcon" ><p id="click1Amt" class="amtOwned">0x</p></div></button></td>
+                        <td><button class="upgradebtn" id="moreClick" onclick="purchaseauto1()"><p class="price" id="a1Price">5</p><h4 class="title">Automation</h4><div style="display: flex; width: 100%; text-align: center;"><img src="{{site.baseurl}}/images/robotCursor.png" class="upgradeIcon" ><p id="auto1Amt" class="amtOwned">0x</p></div></button></td>
+                        <td><button class="upgradebtn" id="moreClick" onclick="purchaseclick2()"><p class="price" id="c2Price">100</p><h4 class="title">Clicks+</h4><div style="display: flex; width: 100%; text-align: center;"><img src="{{site.baseurl}}/images/greencursor.png" class="upgradeIcon" ><p id="click2Amt" class="amtOwned">0x</p></div></button></td>
+                        <td><button class="upgradebtn" id="moreClick" onclick="purchaseauto2()"><p class="price" id="a2Price">125</p><h4 class="title">Robot Help</h4><div style="display: flex; width: 100%; text-align: center;"><img src="{{site.baseurl}}/images/robotyellow.png" class="upgradeIcon" ><p id="auto2Amt" class="amtOwned">0x</p></div></button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+    var money = 0;
+    var moneyMulti = 1;
+
+    var click1Owned = 0;
+    var click2Owned = 0;
+    var auto1Owned = 0;
+    var auto2Owned = 0;
+    var cps = 0;
+    var buysound = new Audio('{{site.baseurl}}/images/retro-coin.mp3');
+    var errorsound = new Audio('{{site.baseurl}}/images/error.mp3');
+    var cookie = document.getElementById("cookie");
+    var cookieImg = document.getElementById("cookieimg");
+    var cookieDiv = document.getElementById("cookieDiv");
+    document.getElementById("c2Price").innerHTML = Math.round(100*(Math.pow(1.5,click2Owned))).toString();
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    async function cookieClicked(){
+        var clicksound = new Audio('{{site.baseurl}}/images/click.wav');
+        clicksound.play();
+        money += 1*moneyMulti
+        money = Math.round(money*10)/10;
+        document.getElementById("moneyCount").innerHTML = "Money: "+ money.toString();
+        cookieImg.style="height:550px";
+        cookieDiv.style="padding-bottom:0px; padding-top:-50px;"
+        await sleep(200);
+        cookieImg.style="height:500px"
+        cookieDiv.style="padding-bottom:50px; padding-top:0px;"
+    }
+    async function cpsMaker(){
+        while(true){
+            money += cps;
+            money = Math.round(money*10)/10;
+            document.getElementById("moneyCount").innerHTML = "Money: "+ money.toString();
+            document.getElementById("cps").innerHTML = "CPS: " + Math.round(cps.toString());
+            await sleep(1000);
+        }
+    }
+    cpsMaker();
+    function purchaseclick1(){
+        if( money >= Math.round(5*(Math.pow(1.5,click1Owned)))){
+            buysound.play();
+            money -= Math.round(5*(Math.pow(1.5,click1Owned)));
+            moneyMulti += 0.2;
+            click1Owned += 1;
+            money = Math.round(money*10)/10;
+            document.getElementById("moneyCount").innerHTML = "Money: "+ money.toString();
+            document.getElementById("click1Amt").innerHTML = click1Owned.toString() + "x";
+            document.getElementById("c1Price").innerHTML = Math.round(5*(Math.pow(1.5,click1Owned))).toString();
+        } else{
+            errorsound.play();
+        }
+    }
+    function purchaseclick2(){
+        if( money >= Math.round(100*(Math.pow(1.5,click2Owned)))){
+            buysound.play();
+            money -= Math.round(100*(Math.pow(1.5,click2Owned)));
+            moneyMulti += 2;
+            click2Owned += 1;
+            money = Math.round(money*10)/10;
+            document.getElementById("moneyCount").innerHTML = "Money: "+ money.toString();
+            document.getElementById("click2Amt").innerHTML = click2Owned.toString() +"x";
+            document.getElementById("c2Price").innerHTML = Math.round(100*(Math.pow(1.5,click2Owned))).toString();
+        } else{
+            errorsound.play();
+        }
+    }
+    function purchaseauto1(){
+        if( money >= Math.round(5*(Math.pow(1.65,auto1Owned)))){
+            buysound.play();
+            money -= Math.round(5*(Math.pow(1.65,auto1Owned)));
+            cps += 1;
+            auto1Owned += 1;
+            money = Math.round(money*10)/10;
+            document.getElementById("moneyCount").innerHTML = "Money: "+ money.toString();
+            document.getElementById("auto1Amt").innerHTML = auto1Owned.toString() +"x";
+            document.getElementById("a1Price").innerHTML = Math.round(5*(Math.pow(1.65,auto1Owned))).toString();
+        } else{
+            errorsound.play();
+        }
+    }
+    function purchaseauto2(){
+        if( money >= Math.round(125*(Math.pow(1.55,auto2Owned)))){
+            buysound.play();
+            money -= Math.round(125*(Math.pow(1.55,auto2Owned)));
+            cps += 5;
+            auto2Owned += 1;
+            money = Math.round(money*10)/10;
+            document.getElementById("moneyCount").innerHTML = "Money: "+ money.toString();
+            document.getElementById("auto2Amt").innerHTML = auto2Owned.toString() +"x";
+            document.getElementById("a2Price").innerHTML = Math.round(125*(Math.pow(1.55,auto2Owned))).toString();
+        } else{
+            errorsound.play();
+        }
+    }
+    //Everything made by Travis Callow :D
+</script>
