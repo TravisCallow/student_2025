@@ -1,7 +1,9 @@
 ---
-layout: page
+layout: post
 title: About
 permalink: /about/
+toc: True
+comments: True
 ---
 
-Creator of Student 2025
+{% include aboutme_home.html %}

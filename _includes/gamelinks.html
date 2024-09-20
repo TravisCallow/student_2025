@@ -1,0 +1,132 @@
+<html>
+    <style>
+        h1,h2,h3,h4,h5,h6,p,li{
+            font-family: monospace !important;
+        }
+        .aboutMe {
+            border: solid white 0px !important;
+            border-left: solid rgb(174, 232, 255) !important;
+            border-radius: 0px !important;
+            table-layout: auto !important;
+        }
+
+        li{
+            font-weight: normal;
+            font-size: 17.5px;
+            color:rgba(116, 206, 255, 0.533) !important;
+        }
+        .abtMeList{
+            list-style-type: "» ";
+        }
+
+        img{
+            border-radius: 25px;
+            height: 300px;
+            width: auto;
+            float:left;
+            margin: 10px 15px 0px 0px;
+        }
+        div{
+            clear:both;
+        }
+        h3,h2{
+            color:rgba(116, 211, 255, 0.953) !important;
+        }
+        .navLink {
+            color: black;
+            background: aliceblue;
+        }
+
+        .navBtn {
+            color: rgb(255, 253, 249) !important;
+            background-color: rgba(229, 242, 255, 0.274) !important;
+            background: aliceblue;
+            border-color: aliceblue;
+            border-radius: 35px;
+            font-size: 20px;
+            transition: font-size, background-color, border-color;
+            transition-duration: 0.3s;
+            transition-delay: 0s;
+            font-family: monospace;
+            display: inline-block;
+            padding: 7px;
+            
+        }
+        .navBtn:hover {
+            border-color: rgb(128, 192, 255);
+            background: fixed;
+            background-color: rgba(108, 196, 255, 0.5) !important;
+            font-size: 25px;
+        }
+
+        button {
+            color:aqua;
+        }
+
+        .navBarTable {
+            border-collapse: separate !important;
+            border: solid rgb(232, 247, 255) 2px !important;
+            border-radius: 35px !important;
+            position:fixed;
+            bottom:0px;
+            width:57.5%;
+        }
+        .navTd, .navTr {
+            border: solid rgb(109, 206, 255) 0px !important;
+        }
+    </style>
+    <body>
+        <h1 style="color: rgb(138, 208, 255) !important;">Game Links</h1>
+        <p>Fun Fact: I used no AI in my games I made</p>
+        <table class="aboutMe">
+            <tr>
+                <th>
+                    <h2 id="basicCode">My First Ever Game</h2>
+                    <a href="{{site.baseurl}}/navigation/firstGame.html"><button class="navBtn">First Game</button></a>
+                    <h3>Description:</h3>
+                    <ul class="abtMeList"><li>You fight the slimes that spawn more and more as you progress. Just press space to kill them.</li></ul>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h2 id="basicCode">Lucky Game</h2>
+                    <a href="{{site.baseurl}}/navigation/luckGame.html"><button class="navBtn">Gamble</button></a>
+                    <h3>Description:</h3>
+                    <ul class="abtMeList"><li>Just gamble.. I mean just roll for more VIRTUAL money :D</li></ul>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h2 id="basicCode">Cookie Clicker</h2>
+                    <a href="{{site.baseurl}}/navigation/cookieClicker.html"><button class="navBtn">Cookie Clicker</button></a>
+                    <h3>Description:</h3>
+                    <ul class="abtMeList"><li>Click the cookie and make money!</li></ul>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h2 id="basicCode">Snake Game</h2>
+                    <a href="{{site.baseurl}}/navigation/Snake.html"><button class="navBtn">Snake</button></a>
+                    <h3>Description:</h3>
+                    <ul class="abtMeList"><li>Eat the apples and don't crash!</li></ul>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h2 id="basicCode">Calculator</h2>
+                    <a href="{{site.baseurl}}/calculator/calculator.html"><button class="navBtn">Calculator</button></a>
+                    <h3>Description:</h3>
+                    <ul class="abtMeList"><li>Calculate numbers!! (This was made by Bailey)</li></ul>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h2 id="basicCode">Binary Calculator</h2>
+                    <a href="{{site.baseurl}}/calculator_binary/calc_bin2.html"><button class="navBtn">Binary Calculator</button></a>
+                    <h3>Description:</h3>
+                    <ul class="abtMeList"><li>Calculates binary numbers!! (This was made by Bailey)</li></ul>
+                </th>
+            </tr>
+        </table>
+    </body>
+</html>

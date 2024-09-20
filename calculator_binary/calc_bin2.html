@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Toggle Calculator</title>
+    <style>
+        .binary-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .binary-button {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            margin: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .control-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .output {
+            text-align: center;
+        }
+        #colorDisplay {
+            width: 200px;
+            height: 100px;
+            margin: 20px auto;
+            border: 2px solid black;
+        }
+        .red-bits {
+            color: red;
+        }
+
+        .green-bits {
+            color: green;
+        }
+
+        .blue-bits {
+            color: blue;
+        }
+        .red-button {
+            background-color: red;
+            color: white; /* Optional, to make the text visible */
+        }
+
+        .green-button {
+            background-color: green;
+            color: white;
+        }
+
+        .blue-button {
+            background-color: blue;
+            color: white;
+        }
+        .color-controls {
+            margin-bottom: 10px;
+        }
+
+        .red-controls button {
+            background-color: red;
+            color: white;
+        }
+
+        .green-controls button {
+            background-color: green;
+            color: white;
+        }
+
+        .blue-controls button {
+            background-color: blue;
+            color: white;
+            
+        }
+        
+        
+
+
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Binary Toggle Calculator</h1>
+        
+        <!-- Binary Toggle Buttons -->
+        <div class="binary-buttons" id="binaryButtons">
+            <!-- Buttons will be generated here -->
+        </div>
+
+        <!-- Output Section -->
+        <div class="output">
+            <p>Binary: <span id="binaryOutput">000000000000000000000000</span></p>
+            <p>RGB: <span id="rgbOutput">(0, 0, 0)</span></p>
+            <div id="colorDisplay"></div> <!-- Box to display the RGB color -->
+        </div>
+        <div id="controls">
+            <!-- Red Controls -->
+            <div class="color-controls red-controls">
+                <button class="red-button" onclick="incrementColor('red', 1)">+1 Red</button>
+                <button class="red-button" onclick="incrementColor('red', -1)">-1 Red</button>
+            </div>
+        
+            <!-- Green Controls -->
+            <div class="color-controls green-controls">
+                <button class="green-button" onclick="incrementColor('green', 1)">+1 Green</button>
+                <button class="green-button" onclick="incrementColor('green', -1)">-1 Green</button>
+            </div>
+        
+            <!-- Blue Controls -->
+            <div class="color-controls blue-controls">
+                <button class="blue-button" onclick="incrementColor('blue', 1)">+1 Blue</button>
+                <button class="blue-button" onclick="incrementColor('blue', -1)">-1 Blue</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="calc_bin_script2.js"></script>
+</body>
+</html>
