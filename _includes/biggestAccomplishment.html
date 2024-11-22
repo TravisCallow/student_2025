@@ -83,6 +83,77 @@
                 <th>
                     <h1 style="color: rgb(138, 208, 255) !important;" id="basicCode">My First Game (Samaurai Game)</h1>
                     <h2 style="color: rgb(59, 115, 153) !important;">(Outside-class Work)</h2>
+                    <pre><code>
+if (facing == false && player.position.x + player.width/2 - enemy.position.x + enemy.width/2 < 100 && player.position.x + player.width/2 - enemy.position.x + enemy.width/2 > 0 && player.position.y + player.height/2 - 10 < enemy.position.y + enemy.height/2 && player.position.y + player.height/2 + 10 > enemy.position.y + enemy.height/2){ //left
+    enemy.velocity.y = -20;
+    enemy.velocity.x = -5;
+    if(swordSound == 0){
+        swordSound = 1;
+        swordhitSound.play();
+    }else{
+        swordSound = 0;
+        swordhitSound2.play();
+    }
+    enemyHealth--;
+    console.log(enemyHealth);
+    console.log(player.position.x + player.width/2 - enemy.position.x + enemy.width/2);
+    if(enemyHealth == 0){
+        enemyHealth = 3;
+        powerupAdd(enemy.position.x, enemy.position.y);
+        respawnEnemy(enemy);
+        if(ultPercentage < ultMaxPercentage){
+            ultPercentage += ultPercentageInc;
+            if(ultPercentage >= ultMaxPercentage){
+                ultReadySound.play();
+            }
+        }
+        score++;
+        if(score == 5){
+            respawnEnemy(enemy2);
+        }else if(score == 15){
+            respawnEnemy(enemy3);
+        }else if(score == 25){
+            respawnEnemy(enemy4);
+        }else if(score == 50){
+            respawnEnemy(enemy5);
+        }
+    }
+}else if (facing == true && enemy.position.x + enemy.width/2 - player.position.x + player.width/2 < 100 && enemy.position.x + enemy.width/2 - player.position.x + player.width/2 > 0 && player.position.y + player.height/2 - 10 < enemy.position.y + enemy.height/2 && player.position.y + player.height/2 + 10 > enemy.position.y + enemy.height/2){ //right
+    enemy.velocity.y = -20;
+    enemy.velocity.x = 5;
+    if(swordSound == 0){
+        swordSound = 1;
+        swordhitSound.play();
+    }else{
+        swordSound = 0;
+        swordhitSound2.play();
+    }
+    enemyHealth--;
+    console.log(enemyHealth);
+    console.log(enemy.position.x + enemy.width/2 - player.position.x + player.width/2);
+    if(enemyHealth == 0){
+        enemyHealth = 3;
+        powerupAdd(enemy.position.x, enemy.position.y);
+        respawnEnemy(enemy);
+        if(ultPercentage < ultMaxPercentage){
+            ultPercentage += ultPercentageInc;
+            if(ultPercentage >= ultMaxPercentage){
+                ultReadySound.play();
+            }
+        }
+        score++;
+        if(score == 5){
+            respawnEnemy(enemy2);
+        }else if(score == 15){
+            respawnEnemy(enemy3);
+        }else if(score == 25){
+            respawnEnemy(enemy4);
+        }else if(score == 50){
+            respawnEnemy(enemy5);
+        }
+    }
+}
+                    </code></pre>
                     <h3>About the game:</h3>
                     <ul class="abtMeList"><li>This game is a fast-paced, 2d platformer game where you are a samaurai who is killing slimes. You have an ultimate which kills all slimes in the direction you are facing.</li></ul>
                     <h3>Why it's my best piece of code:</h3>
@@ -96,7 +167,7 @@
                 </th>
             </tr>
         </table>
-        <h1 style="color: rgb(138, 208, 255) !important;">My Biggest accomplishment</h1>
+        <h1 style="color: rgb(138, 208, 255) !important;">My Biggest accomplishments</h1>
         <br>
         <table class="aboutMe">
             <tr>
@@ -115,7 +186,24 @@
                     <a href="{{site.baseurl}}/navigation/cookieClicker.html"><button class="navBtn">Go To Cookie Clicker --	&#8594;</button></a>
                 </th>
             </tr>
+
+            <tr>
+                <th>
+                    <h1 style="color: rgb(138, 208, 255) !important;" id="basicCode">My Website's Style</h1>
+                    <h2 style="color: rgb(59, 115, 153) !important;">(Overall Work)</h2>
+                    <h3>About the style:</h3>
+                    <ul class="abtMeList"><li>The style is a nice, organized, good looking style that doesn't hurt the eyes and is easy to navigate.</li></ul>
+                    <h3>Why it's my biggest accomplishment:</h3>
+                    <ul class="abtMeList"><li>This style took me a while to make and I am very proud of it and I am greatful for the knowledge to make this. The styling on my page looks amazing and I think that it would be an amazing feature for my future website.</li></ul>
+                    <h3>My favorite part:</h3>
+                    <ul class="abtMeList"><li>My favorite part would be the look and how the colors go together and how everything looks polished.</li></ul>
+                    <h3>Struggles</h3>
+                    <ul class="abtMeList"><li>At first, I didn't understand how to change the style until I saw that I needed the !important tag at the end of the css codes. I also struggled with formatting my objects like the format for the list you are reading out of right now.</li></ul>
+                </th>
+            </tr>
         </table>
+        <br>
+        <a href="{{site.baseurl}}/2024/11/19/MCQ_summary_IPYNB_2_.html"><button class="navBtn">Go To MCQ Analysis --	&#8594;</button></a>
 
     </body>
 </html>
