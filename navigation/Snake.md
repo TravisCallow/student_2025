@@ -33,11 +33,16 @@ courses: { compsci: {week: 2} }
     }
 
     #gameover a, #setting a, #menu a{
+        margin-top:10px;
+        background:#aaaaaa;
+        padding:5px;
         font-size: 30px;
+        color:#111111;
         display: block;
     }
 
     #gameover a:hover, #setting a:hover, #menu a:hover{
+        
         cursor: pointer;
     }
 
@@ -194,7 +199,7 @@ courses: { compsci: {week: 2} }
                     ctx.lineWidth = 3;
                     ctx.fillStyle = '#000000aa';
                     ctx.fill();
-                    ctx.fillStyle = 'black';
+                    ctx.fillStyle = '#aaaaaa';
                     ctx.font = "30px monospace";
                     ctx.textAlign = "center";
                     ctx.fillText("Welcome To Travis's Snake Game!",canvas.width/2,100);

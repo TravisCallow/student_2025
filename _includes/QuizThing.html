@@ -1,0 +1,223 @@
+<html>
+    <head>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    </head>
+    <style>
+        h1, h2, h3, h4, h5, h6, p, li {
+            font-family: monospace !important;
+        }
+        .aboutMe {
+            border: solid white 0px !important;
+            border-left: solid rgb(255, 221, 174) !important;
+            border-radius: 0px !important;
+            table-layout: auto !important;
+        }
+        li {
+            font-weight: normal;
+            font-size: 17.5px;
+            color: rgba(255, 197, 116, 0.533) !important;
+        }
+        .abtMeList {
+            list-style-type: "» ";
+        }
+        img {
+            border-radius: 25px;
+            height: 300px;
+            width: auto;
+            float: left;
+            margin: 10px 15px 0px 0px;
+        }
+        div {
+            clear: both;
+        }
+        h3, h2 {
+            color: rgba(255, 195, 116, 0.953) !important;
+        }
+        .navLink {
+            color: black;
+            background: aliceblue;
+        }
+        .navBtn {
+            color: rgb(255, 253, 249) !important;
+            background-color: rgba(255, 242, 229, 0.274) !important;
+            background: aliceblue;
+            border-color: aliceblue;
+            border-radius: 35px;
+            font-size: 20px;
+            transition: font-size, background-color, border-color;
+            transition-duration: 0.3s;
+            transition-delay: 0s;
+            font-family: monospace;
+            display: inline-block;
+            padding: 7px;
+        }
+        .navBtn:hover {
+            border-color: rgb(255, 198, 128);
+            background: fixed;
+            background-color: rgba(255, 204, 108, 0.5) !important;
+            font-size: 25px;
+        }
+        button {
+            color: aqua;
+        }
+        .navBarTable {
+            border-collapse: separate !important;
+            border: solid rgb(255, 245, 232) 2px !important;
+            border-radius: 35px !important;
+            position: fixed;
+            bottom: 0px;
+            width: 57.5%;
+        }
+        .navTd, .navTr {
+            border: solid rgb(255, 192, 109) 0px !important;
+        }
+    </style>
+    <body>
+        <h1 style="color: rgb(255, 210, 138) !important;">My Project: Quizzes and its API</h1>
+        <table class="navBarTable">
+            <tr class="navTr">
+                <td class="navTd"><a href="#howWork"><button class="navBtn">How it Works</button></a></td>
+                <td class="navTd"><a href="#intoDepth"><button class="navBtn">Into Depth</button></a></td>
+                <td class="navTd"><a href="#edcode"><button class="navBtn">Entire Database Code</button></a></td>
+            </tr>
+        </table>
+        <table class="aboutMe">
+            <tr>
+                <th>
+                    <h2 id="howWork">How it Works</h2>
+                    <h3>Frontend:</h3>
+                    <ul class="abtMeList">
+                        <li>Using HTML, JavaScript, and CSS, I have made some amazing designs and the basis of how the code works.</li>
+                        <li>The frontend includes the visuals and the process of making questions and returning the answers.</li>
+                        <li>When you submit, it will give you the answers that you got right and incorrect.</li>
+                    </ul>
+                    <h3>Backend:</h3>
+                    <ul class="abtMeList">
+                        <li>The backend is what gives the user the statistics they have, such as their XP and level.</li>
+                        <li>The code will be unable to run if you do not have the backend working, which will result in an error message.</li>
+                        <li>This backend works by giving the user the amount of questions correct in the form of XP, only if they have exceeded 75% correct.</li>
+                    </ul>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h2 id="intoDepth">Into Depth</h2>
+                    <h3>Input/Outputs</h3>
+                    <ul class="abtMeList">
+                        <li>The input is when you submit the quiz; this will go through the API and if the user is not in the database yet, it will make a new user, otherwise it will update the current user in the database.</li>
+                        <li>It will output the level and XP of the user onto the frontend showing their progress towards the next level.</li>
+                    </ul>
+                    <h3>API</h3>
+                    <pre><code class="language-python">from flask import Blueprint, jsonify, request
+from flask_restful import Api, Resource
+from model.quizbase import db, Statistics
+
+userstats = Blueprint('userstats', __name__, url_prefix='/api')
+api = Api(userstats)
+
+class QuizAPI:
+    # Helper function to calculate XP threshold for the current level
+    @staticmethod
+    def xp_threshold(level):
+        return level * 10  # Threshold increases linearly with level
+
+    # Function to handle leveling up
+    @staticmethod
+    def level_up(user_stats):
+        while user_stats._xp >= QuizAPI.xp_threshold(user_stats._level):
+            user_stats._xp -= QuizAPI.xp_threshold(user_stats._level)
+            user_stats._level += 1
+
+# Endpoint to submit quiz results
+class _SubmitQuiz(Resource):
+    def post(self):
+        data = request.json
+        user = data.get('user')
+        correct_answers = data.get('correct', 0)
+        total_questions = data.get('total', 0)
+
+        if not user:
+            return {"message": "User parameter is required"}, 400
+
+        if total_questions == 0:
+            return {"message": "Invalid quiz data"}, 400
+
+        # Fetch or create user stats
+        user_stats = Statistics.query.filter_by(_user=user).first()
+        if not user_stats:
+            user_stats = Statistics(xp=0, level=1, user=user)
+            db.session.add(user_stats)
+
+        # Calculate percentage of correct answers
+        percentage_correct = (correct_answers / total_questions) * 100
+
+        # Award XP if at least 75% correct
+        if percentage_correct >= 75:
+            user_stats._xp += correct_answers
+
+        # Handle leveling up
+        QuizAPI.level_up(user_stats)
+
+        # Save changes to the database
+        db.session.commit()
+
+        return jsonify({"xp": user_stats._xp, "level": user_stats._level, "user": user})
+
+# Register endpoints
+api.add_resource(_SubmitQuiz, '/userstats')</code></pre>
+                    <ul class="abtMeList">
+                        <li>This is the code of the API.</li>
+                        <li>What this code does is when it gets the data (XP, level, user), it will add everything accordingly. If the user is already in the database for score, it will update that, otherwise it will create a new file for the database.</li>
+                        <li>This code creates a set of routes for an API using Flask and Flask-RESTful. It tracks user quiz statistics like experience points (XP) and levels. The _SubmitQuiz class handles quiz submissions by calculating XP from correct answers and leveling up users if they earn enough points.</li>
+                    </ul>
+                    <h3>Database Interactions</h3>
+                    <pre><code class="language-python">__tablename__ = 'user_statistics'
+id = db.Column(db.Integer, primary_key=True)
+_xp = db.Column(db.Integer, nullable=False, unique=False)
+_level = db.Column(db.Integer, nullable=False, unique=False)
+_user = db.Column(db.String(255), unique=False, nullable=False)</code></pre>
+                    <ul class="abtMeList">
+                        <li>The database has 4 different columns: the ID, XP, level, and user.</li>
+                        <li>When the quiz API file determines there is a new user, it will go to the database file to add a new user.</li>
+                    </ul>
+                    <h3>Database Restore Code:</h3>
+                    <pre><code class="language-python">@staticmethod
+def restore(data):
+    for sbuser_data in data:
+        _ = sbuser_data.pop('id', None)
+        xp = sbuser_data.get("xp", None)
+        user = sbuser_data.get("user", None)
+        sbuser = Statistics.query.filter_by(_xp=xp).first()
+        if sbuser:
+            sbuser.update(sbuser_data)
+        else:
+            sbuser = Statistics(**sbuser_data)
+            sbuser.update(sbuser_data)
+            sbuser.create()</code></pre>
+                    <h3>Database Create Code:</h3>
+                    <pre><code class="language-python">def create(self):
+    """
+    The create method adds the object to the database and commits the transaction.
+    Uses:
+        The db ORM methods to add and commit the transaction.
+    Raises:
+        Exception: An error occurred when adding the object to the database.
+    """
+    try:
+        db.session.add(self)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        raise e</code></pre>
+                    <ul class="abtMeList">
+                        <li>This code of the database defines a Statistics class to manage user experience points (XP) and levels in a database using SQLAlchemy.</li>
+                        <li>The class has methods to create, read, update, and delete user statistics while handling errors during database operations.</li>
+                    </ul>
+                    <h2 id="edcode">Entire Database Code: </h2>
+                </th>
+            </tr>
+        </table>
+    </body>
+</html>
