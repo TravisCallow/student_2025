@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    </head>
+    <style>
+        h1, h2, h3, h4, h5, h6, p, li {
+            font-family: monospace !important;
+        }
+        .aboutMe {
+            border: solid white 0px !important;
+            border-left: solid rgb(255, 221, 174) !important;
+            border-radius: 0px !important;
+            table-layout: auto !important;
+        }
+        li {
+            font-weight: normal;
+            font-size: 17.5px;
+            color: rgba(255, 197, 116, 0.533) !important;
+        }
+        .abtMeList {
+            list-style-type: "» ";
+        }
+        img {
+            border-radius: 25px;
+            height: auto;
+            width: auto;
+            float: left;
+            margin: 10px 15px 0px 0px;
+        }
+        div {
+            clear: both;
+        }
+        h3, h2 {
+            color: rgba(255, 195, 116, 0.953) !important;
+        }
+        .navLink {
+            color: black;
+            background: aliceblue;
+        }
+        .navBtn {
+            color: rgb(255, 253, 249) !important;
+            background-color: rgba(255, 242, 229, 0.274) !important;
+            background: aliceblue;
+            border-color: aliceblue;
+            border-radius: 35px;
+            font-size: 18;
+            transition: font-size, background-color, border-color;
+            transition-duration: 0.3s;
+            transition-delay: 0s;
+            font-family: monospace;
+            display: inline-block;
+            padding: 2px;
+        }
+        .navBtn:hover {
+            border-color: rgb(255, 198, 128);
+            background: fixed;
+            background-color: rgba(255, 204, 108, 0.5) !important;
+            font-size: 20px;
+        }
+        button {
+            color: aqua;
+        }
+        .navBarTable {
+            border-collapse: separate !important;
+            border: solid rgb(255, 245, 232) 2px !important;
+            border-radius: 35px !important;
+            position: fixed;
+            bottom: 0px;
+            width: 70%;
+        }
+        .navTd, .navTr {
+            border: solid rgb(255, 192, 109) 0px !important;
+        }
+    </style>
+    <body>
+        <h1 style="color: rgb(255, 210, 138) !important;">My Contributions To Study Buddy</h1>
+        <table class="navBarTable">
+            <tr class="navTr">
+                <td class="navTd"><a href="MainFinalPage_IPYNB_2_.html"><button class="navBtn">BACK</button></a></td>
+            </tr>
+        </table>
+        <table class="aboutMe">
+            <tr>
+                <th>
+                    <h2 id="whatis">What it is</h2>
+                    
+                    <ul class="abtMeList">
+                        <img src="{{site.baseurl}}/images/mainpagesb.png" alt="Study Buddy Homepage">
+                        <br>
+                        <li>This website is for people to study and learn about different subjects in school.</li>
+                        <li>Others worked on the chatroom and profiles.</li>
+                        <li>My part was the quizzes and the API and database that goes with it.</li>
+                        <li>These quizzes allow you to practice you skills in school to be the best student you can be.</li>
+                        <li>After completing a quiz, if you score 75% or higher, you will be awarded xp for the amount of questions you had gotten correct.</li>
+                    </ul>
+                    </th></tr>
+                    <tr><th>
+                        <h2 id="Contributions">Contributions</h2>
+                        <h3>#1: Quizzes</h3>
+                        <ul class="abtMeList">
+                            <img src="{{site.baseurl}}/images/quizlayout.png" alt="Study Buddy Quiz Layout">
+                            <br>
+                            <li>I made all of the quizzes on study buddy</li>
+                            <li>The quizzes give the user xp and levels based on completion (75% or higher score)</li>
+                        </ul>
+                    </th></tr>
+                    <tr><th>
+                        <h3>#2: Helped fix frontend</h3>
+                        <ul class="abtMeList">
+                            <img src="{{site.baseurl}}/images/buttonexampl.png" alt="Study Buddy Buttons">
+                            <br>
+                            <li>The frontend would sometimes break and I would have to fix it.</li>
+                            <li>When we started, the buttons had an "a" tag inside rather than the button being in the "a" tag resulting in having to click the text rather than the whole button.</li>
+                        </ul>
+                    </th></tr>
+                    <tr><th>
+                        <h3>#3: Made Header</h3>
+                        <ul class="abtMeList">
+                            <img src="{{site.baseurl}}/images/header.png" alt="Study Buddy Header">
+                            <br>
+                            <li>We did not have a proper header for a while so I made a header for Study Buddy.</li>
+                        </ul>
+                    </th></tr>
+                    <tr><th>
+                        <h3>#4: Set example on user-based statistics</h3>
+                        <ul class="abtMeList">
+                            <img src="{{site.baseurl}}/images/statsofuser.png" alt="Study Buddy Statistics">
+                            <br>
+                            <li>My whole team didn't have their backend based on the user so it was all jumbled up.</li>
+                            <li>With my quizes, it has always been based on the user so I was able to help and be an example on how to add the user.</li>
+                        </ul>
+                    </th></tr>
+                    <tr><th>
+                        <h3>#5: Quiz Database</h3>
+                        <ul class="abtMeList">
+                            <img src="{{site.baseurl}}/images/databasething.png" alt="Study Buddy Database">
+                            <br>
+                            <li>Once you submit the quiz, it will store you xp and levels you have gained in the database of user_statistics.</li>
+                            <li>This will allow you to save your levels and xp so you dont loose them.</li>
+                        </ul>
+                    </th></tr>
+                
+        </table>
+    </body>
+</html>
