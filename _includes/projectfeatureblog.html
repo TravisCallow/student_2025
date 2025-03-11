@@ -221,8 +221,52 @@
                 </ul>
             </th></tr>
             <tr><th>
+                <h1>Code:</h1>
+                <ul class="abtMeList">
+                    <li>This code is what processes quiz submissions.</li>
+                    <li>This is an innovation in our society as people study with flashcards and other means of physical studying sheets. This helps prevent the waste of paper and does it all digitally for quizing you and you get the answers immediately.</li>
+                    <li>It takes the input of the quiz(correct, total, and the user) and it will output and increase the xp and the levels accordingly.</li>
+                </ul>
+                <pre><code class="language-python">
+class _SubmitQuiz(Resource):
+    def post(self):
+        data = request.json
+        user = data.get('user')
+        correct_answers = data.get('correct', 0)
+        total_questions = data.get('total', 0)
+
+        if not user:
+            return {"message": "User parameter is required"}, 400
+
+        if total_questions == 0:
+            return {"message": "Invalid quiz data"}, 400
+
+        # Fetch or create user stats
+        user_stats = Statistics.query.filter_by(_user=user).first()
+        if not user_stats:
+            user_stats = Statistics(xp=0, level=1, user=user)
+            db.session.add(user_stats)
+
+        # Calculate percentage of correct answers
+        percentage_correct = (correct_answers / total_questions) * 100
+
+        # Award XP if at least 75% correct
+        if percentage_correct >= 75:
+            user_stats._xp += correct_answers
+
+        # Handle leveling up
+        QuizAPI.level_up(user_stats)
+
+        # Save changes to the database
+        db.session.commit()
+
+        return jsonify({"xp": user_stats._xp, "level": user_stats._level, "user": user})
+                </code></pre>
+            </th></tr>
+            <tr><th>
                 <ul class="abtMeList">
                     <h1>Analysis of how code works</h1>
+                    <li>This class processes quiz submissions. It checks the user's data, calculates their score, and awards XP if they get at least 75% correct. It also updates their level and saves the changes before returning the updated XP and level through jsonify.</li>
                     <img src="{{site.baseurl}}/images/studybuddyquiz.drawio.png">
                     <li>This diagram shows how the whole quiz system interacts with each other. It is an in-depth analysis on everything and can be shown as a blueprint on how to recreate my code.</li>
                     <li>Whatever is connected with red lines are the actual code, the ones connected with white lines are comments on what each system does.</li>
