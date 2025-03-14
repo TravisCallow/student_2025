@@ -227,6 +227,24 @@
                     <li>This is an innovation in our society as people study with flashcards and other means of physical studying sheets. This helps prevent the waste of paper and does it all digitally for quizing you and you get the answers immediately.</li>
                     <li>It takes the input of the quiz(correct, total, and the user) and it will output and increase the xp and the levels accordingly.</li>
                 </ul>
+                <h2>User Input:</h2>
+                <pre><code class="language-javascript">
+const response = await fetch(`${pythonURI}/api/userstats`, {
+    ...fetchOptions,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+        user: storedName,
+        correct: correct,
+        total: questions.length
+    }),
+});
+                </code></pre>
+                <ul class="abtMeList">
+                    <li>This is what gets the inputs from the website and sends to the API.</li>
+                    
+                </ul>
+                <h2>Functions and if statements</h2>
                 <pre><code class="language-python">
 class _SubmitQuiz(Resource):
     def post(self):
@@ -241,28 +259,48 @@ class _SubmitQuiz(Resource):
         if total_questions == 0:
             return {"message": "Invalid quiz data"}, 400
 
-        # Fetch or create user stats
         user_stats = Statistics.query.filter_by(_user=user).first()
         if not user_stats:
             user_stats = Statistics(xp=0, level=1, user=user)
             db.session.add(user_stats)
 
-        # Calculate percentage of correct answers
         percentage_correct = (correct_answers / total_questions) * 100
 
-        # Award XP if at least 75% correct
         if percentage_correct >= 75:
             user_stats._xp += correct_answers
 
-        # Handle leveling up
         QuizAPI.level_up(user_stats)
 
-        # Save changes to the database
         db.session.commit()
 
         return jsonify({"xp": user_stats._xp, "level": user_stats._level, "user": user})
                 </code></pre>
+                <ul class="abtMeList">
+                    <li>This is the main code that does all of the math to calculate score and everything.</li>
+                </ul>
+                <h2>Function Calling</h2>
+                <pre><code class="language-javascript">
+const response = await fetch(`${pythonURI}/api/userstats`, {
+    ...fetchOptions,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+        user: storedName,
+        correct: correct,
+        total: questions.length
+    }),
+});
+                </code></pre>
+                <ul class="abtMeList">
+                    <li></li>
+                </ul>
+                <h2>Itterations</h2>
+                <pre><code class="language-python">
+data['user_tasks'] = [sbuser.read() for sbuser in Task.query.all()]
+                </code></pre>
             </th></tr>
+
+            
             <tr><th>
                 <ul class="abtMeList">
                     <h1>Analysis of how code works</h1>
@@ -272,6 +310,13 @@ class _SubmitQuiz(Resource):
                     <li>Whatever is connected with red lines are the actual code, the ones connected with white lines are comments on what each system does.</li>
                     <li>The <span style="color: rgb(83, 83, 255); font-weight: bold;">blue boxes</span> represent Frontend and the <span style="color: rgb(255, 113, 113); font-weight: bold;">red boxes</span> represent Backend</li>
                 </ul>
+            </th></tr>
+            <tr><th>
+                <h1>Video On Quiz Zone</h1>
+                <video width="960" height="720" controls>
+                    <source src="{{site.baseurl}}/images/quizzoneexample.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video> 
             </th></tr>
             <tr><th>
                 <h1>Self-Evaluation: Quiz Zone</h1>
